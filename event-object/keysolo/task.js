@@ -17,6 +17,14 @@ class Game {
   }
 
   registerEvents() {
+    this.currentSymbol = document.querySelector('span.symbol.symbol_current');
+    window.addEventListener('keypress', (event) => {
+      const keySymb = event.key;
+      keySymb.toLowerCase() == this.currentSymbol.textContent.toLowerCase() ? this.success() : this.fail();
+    });
+    
+    
+    
     /*
       TODO:
       Написать обработчик события, который откликается
