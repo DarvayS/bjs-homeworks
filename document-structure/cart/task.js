@@ -17,18 +17,15 @@ const decHandler = function(event) {
 
 const addProduct = function(event) {
   let newCart = event.target;
-  let curProductId = newCart.closest('div.product').dataset.id;
   let curProduct = newCart.closest('div.product');
   let newProd = document.createElement('div');
   newProd.className = "cart__product";
-  newProd.dataset.id = curProductId;
+  newProd.dataset.id = curProduct.dataset.id;
   newProd.innerHTML = '<img class="cart__product-image" src=' + curProduct.querySelector('.product__image').src + '> <div class="cart__product-count">' + +(curProduct.querySelector('.product__quantity-value').textContent) +'</div>';
   let alreadyExist = 0;
-  let elemId;
   for (i = 0; i < cart.children.length; i++) {
-    if (cart.children[i].dataset.id === curProductId) {
+    if (cart.children[i].dataset.id === curProduct.dataset.id) {
       alreadyExist = 1;
-      elemId = i;
       break;
     }
   }
