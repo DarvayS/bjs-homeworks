@@ -15,6 +15,7 @@ document.querySelector('#tasks__add').addEventListener('click', (event) => {
       task.addEventListener('click', taskDeleteHandler);
     });
   };
+  event.preventDefault();
 });
 
 const taskDeleteHandler = function(event) {
