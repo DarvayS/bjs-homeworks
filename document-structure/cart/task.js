@@ -1,6 +1,6 @@
-const inc = document.querySelectorAll('div.product__quantity-control.product__quantity-control_inc');
-const dec = document.querySelectorAll('div.product__quantity-control.product__quantity-control_dec');
-const addToCarts = document.querySelectorAll('div.product__add');
+const inc = document.querySelectorAll('.product__quantity-control_inc');
+const dec = document.querySelectorAll('.product__quantity-control_dec');
+const carts = document.querySelectorAll('div.product__add');
 const cart = document.querySelector('div.cart__products');
 
 
@@ -23,17 +23,19 @@ const addProduct = function(event) {
   newProd.dataset.id = curProduct.dataset.id;
   newProd.innerHTML = '<img class="cart__product-image" src=' + curProduct.querySelector('.product__image').src + '> <div class="cart__product-count">' + +(curProduct.querySelector('.product__quantity-value').textContent) +'</div>';
   let alreadyExist = 0;
-  for (i = 0; i < cart.children.length; i++) {
-    if (cart.children[i].dataset.id === curProduct.dataset.id) {
-      alreadyExist = 1;
-      break;
+  if (curProduct.querySelector('.product__quantity-value').textContent != "0") {
+    for (i = 0; i < cart.children.length; i++) {
+      if (cart.children[i].dataset.id === curProduct.dataset.id) {
+        alreadyExist = 1;
+        break;
+      }
     }
-  }
-  if (alreadyExist === 0) {
-    cart.appendChild(newProd);
-  }
-  else {
-    cart.children[i].querySelector('.cart__product-count').textContent = +cart.children[i].querySelector('.cart__product-count').textContent + +(curProduct.querySelector('.product__quantity-value').textContent);
+    if (alreadyExist === 0) {
+      cart.appendChild(newProd);
+    }
+    else {
+      cart.children[i].querySelector('.cart__product-count').textContent = +cart.children[i].querySelector('.cart__product-count').textContent + +(curProduct.querySelector('.product__quantity-value').textContent);
+    }
   }
 }
 
@@ -45,6 +47,6 @@ dec.forEach(function(val) {
   val.addEventListener('click', decHandler);
 })
 
-addToCarts.forEach(function(newCart) {
+carts.forEach(function(newCart) {
   newCart.addEventListener('click', addProduct)
 })
