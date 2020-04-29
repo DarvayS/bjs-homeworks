@@ -1,3 +1,38 @@
 body {
   font-family: Arial;
 }
+
+span {
+  margin: 15px;
+}
+
+.modal-container-enabled {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-block {
+  width: 600px;
+  height: 150px;
+  background-color: white;
+  margin: 50px auto;
+
+}
+
+.modal-block-button {
+  margin-top: 100px;
+  margin-left: 500px;
+  color: blue;
+  cursor: pointer;
+}
+
+.modal-container-disabled {
+  display: none;
+}
