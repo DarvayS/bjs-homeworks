@@ -22,8 +22,11 @@ span {
   width: 600px;
   height: 150px;
   background-color: white;
-  margin: 50px auto;
-
+  margin: 50px auto;  
+  border-radius: 7px;
+  border: 2px solid #fff;
+  text-align: center;
+  padding-top: 20px;
 }
 
 .modal-block-button {
