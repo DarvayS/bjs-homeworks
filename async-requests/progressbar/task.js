@@ -3,7 +3,7 @@ let form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
   let formData = new FormData(form);
   let xhr = new XMLHttpRequest()
-  xhr.open('GET', 'https://netology-slow-rest.herokuapp.com/upload.php');
+  xhr.open('POST', 'https://netology-slow-rest.herokuapp.com/upload.php');
   xhr.send(formData);
   xhr.onprogress = function(event) {
     console.log(event.lengthComputable);
