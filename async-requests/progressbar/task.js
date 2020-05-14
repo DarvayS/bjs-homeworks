@@ -1,4 +1,4 @@
-const progress = document.getElementById( 'progress' );
+const progress = document.getElementById('progress');
 let form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
   let formData = new FormData(form);
@@ -6,15 +6,7 @@ form.addEventListener('submit', (e) => {
   xhr.open('POST', 'https://netology-slow-rest.herokuapp.com/upload.php');
   xhr.send(formData);
   xhr.onprogress = function(event) {
-    console.log(event.lengthComputable);
-    if (event.lengthComputable) {
-      progress.value = (event.loaded/event.total);
-    }
-  }
+    progress.value = (event.loaded/100000000);  
+  };
   e.preventDefault();
 });
-
-
-
-
-
