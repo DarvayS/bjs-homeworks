@@ -1,4 +1,5 @@
 const progress = document.getElementById('progress');
+
 let form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
   let formData = new FormData(form);
